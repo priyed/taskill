@@ -5,15 +5,12 @@ const connectDB = require("./src/db/connect");
 require("dotenv").config();
 
 // middleware
+app.use(express.static("./public"));
 // without the code below the task data won't be available in the request body
 // parse json
 app.use(express.json());
 
 // routes
-app.get("/hello", (req, res) => {
-  res.send("Task Manager App");
-});
-
 app.use("/api/v1/tasks", tasks);
 
 const port = 5001;
